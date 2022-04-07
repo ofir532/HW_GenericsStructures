@@ -7,10 +7,11 @@ namespace HW_GenericsStructures
         static void Main(string[] args)
         {
             Book b1 = new Book(title: "The Lord of the Rings", content: "Bla bla bla", author: "J.R.R.Tolkien", category: "Fantasy");
-            Book b2 = new Book(title: "The Lord of the Rings2", content: "Bla bla bla", author: "J.R.R.Tolkien", category: "Fantasy");
+            Book b2 = new Book(title: "AThe Lord of the Rings2", content: "Bla bla bla", author: "AJ.R.R.Tolkien", category: "Fantasy");
             Book b3 = new Book(title: "The Lord of the Rings2", content: "Bla bla bla", author: "J.R.R.Tolkien", category: "Fantasy");
             Console.WriteLine(b1);
             MyLibrary library = new MyLibrary();
+            library.AddBook(b1);
             library.AddBook(b1);
             library.AddBook(b2);
             Console.WriteLine(library);
@@ -32,7 +33,9 @@ namespace HW_GenericsStructures
             else
                 Console.WriteLine("Error");
             Console.WriteLine(library.GetBook("The Lord of the Rings2"));
-            Console.WriteLine(library.GetBooksByAuthor("J.R.R.sTolkien"));
+            library.GetBooksSortedByAuthorName();
+            library.GetBooksSortedByTitle();
+            //Console.WriteLine(library.GetBooksByAuthor("J.R.R.sTolkien"));
 
         }
     }

@@ -55,21 +55,23 @@ namespace HW_GenericsStructures
             }            
             return autBook;
         }
-        //public List<string> GetAuthors()
-        //{
-        //    List<string> List1 = new List<string>();
-        //    return List1;
-        //}
-        //public List<Book> GetBooksSortedByAuthorName()
-        //{
-        //    List<Book> List1 = new List<Book>();
-        //    return List1;
-        //}
-        //public List<Book> GetBooksTitleSorted()
-        //{
-        //    List<Book> List1 = new List<Book>();
-        //    return List1;
-        //}
+        public List<string> GetAuthors()
+        {
+            List<string> authors = new List<string>();
+            foreach (Book book in books.Values)
+            {
+                authors.Add(book.Author);
+            }
+            return authors;
+        }
+        public List<Book> GetBooksSortedByAuthorName()
+        {
+            return books.Values.OrderBy(book => book.Author).ToList();
+        }
+        public List<Book> GetBooksSortedByTitle()
+        {
+            return books.Values.OrderBy(book => book.Title).ToList();;
+        }
 
         public override string ToString()
         {
